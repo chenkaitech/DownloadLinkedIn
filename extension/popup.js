@@ -1,4 +1,8 @@
 const pageEl = document.getElementById('page');
+const t = (key) => chrome.i18n.getMessage(key);
+
+document.documentElement.lang = chrome.i18n.getUILanguage();
+for (const el of document.querySelectorAll('[data-i18n]')) el.textContent = t(el.dataset.i18n);
 
 function empty(text) {
   pageEl.innerHTML = '';
@@ -21,13 +25,13 @@ function row({ label, poster, url, filename }) {
   name.textContent = label;
   name.title = url || '';
   const btn = document.createElement('button');
-  btn.textContent = '下载';
+  btn.textContent = t('popupDownload');
   btn.disabled = !url;
   btn.onclick = async () => {
     btn.disabled = true;
     btn.textContent = '…';
     const res = await chrome.runtime.sendMessage({ type: 'download', url, filename });
-    btn.textContent = res?.ok ? '✓' : '失败';
+    btn.textContent = res?.ok ? '✓' : t('popupFailed');
     if (!res?.ok) btn.title = res?.error || '';
   };
   div.append(name, btn);
@@ -36,17 +40,17 @@ function row({ label, poster, url, filename }) {
 
 (async () => {
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  if (!tab || !/^https:\/\/www\.linkedin\.com\//.test(tab.url || '')) return empty('请在 LinkedIn 页面中使用。');
-  empty('解析中…');
+  if (!tab || !/^https:\/\/www\.linkedin\.com\//.test(tab.url || '')) return empty(t('popupNotLinkedIn'));
+  empty(t('popupResolving'));
   let videos;
   try {
     videos = await chrome.tabs.sendMessage(tab.id, { type: 'listVideos' });
   } catch {
-    return empty('内容脚本未加载，请刷新页面后重试。');
+    return empty(t('popupNoContentScript'));
   }
-  if (!videos.length) return empty('当前页面没有已加载的视频，请滚动到视频处。');
+  if (!videos.length) return empty(t('popupNoVideos'));
   pageEl.innerHTML = '';
   videos.forEach((v, i) =>
-    row({ label: `${i + 1}. ${v.url ? v.filename : '未找到 MP4 地址'}`, poster: v.poster, url: v.url, filename: v.filename })
+    row({ label: `${i + 1}. ${v.url ? v.filename : t('errNoMp4')}`, poster: v.poster, url: v.url, filename: v.filename })
   );
 })();

@@ -1,0 +1,66 @@
+{
+  "extName": {
+    "message": "LinkedIn Video Downloader",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "Add a download button to LinkedIn post videos and save them as MP4.",
+    "description": "Extension description"
+  },
+  "btnDownload": {
+    "message": "⬇ Download video",
+    "description": "Download button label on videos"
+  },
+  "btnTitle": {
+    "message": "Download this video",
+    "description": "Tooltip of the download button"
+  },
+  "btnResolving": {
+    "message": "⏳ Resolving",
+    "description": "Button state while finding the MP4 URL"
+  },
+  "btnStarted": {
+    "message": "✓ Download started",
+    "description": "Button state after download starts"
+  },
+  "errNoMp4": {
+    "message": "No MP4 found",
+    "description": "Error when no progressive MP4 URL is found"
+  },
+  "errDownloadFailed": {
+    "message": "Download failed",
+    "description": "Generic download error"
+  },
+  "popupHeader": {
+    "message": "LinkedIn Video Downloader",
+    "description": "Popup header"
+  },
+  "popupSection": {
+    "message": "Videos on this page",
+    "description": "Popup section title"
+  },
+  "popupDownload": {
+    "message": "Download",
+    "description": "Popup row button"
+  },
+  "popupFailed": {
+    "message": "Failed",
+    "description": "Popup row button after failure"
+  },
+  "popupNotLinkedIn": {
+    "message": "Open a LinkedIn page to use this extension.",
+    "description": "Shown when active tab is not LinkedIn"
+  },
+  "popupResolving": {
+    "message": "Resolving…",
+    "description": "Popup loading state"
+  },
+  "popupNoContentScript": {
+    "message": "Content script not loaded. Please refresh the page.",
+    "description": "Content script missing"
+  },
+  "popupNoVideos": {
+    "message": "No videos loaded on this page. Scroll to a video first.",
+    "description": "No videos"
+  }
+}

@@ -1,8 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "LinkedIn Video Downloader",
-  "version": "1.3.0",
-  "description": "Add a download button to LinkedIn post videos and save them as MP4. 一键下载 LinkedIn 帖子视频。",
+  "name": "__MSG_extName__",
+  "version": "1.4.0",
+  "description": "__MSG_extDescription__",
+  "default_locale": "en",
+  "homepage_url": "https://github.com/chenkaitech/DownloadLinkedIn",
   "permissions": [
     "downloads"
   ],
@@ -38,7 +40,7 @@
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "LinkedIn Video Downloader",
+    "default_title": "__MSG_extName__",
     "default_icon": {
       "16": "icons/16.png",
       "48": "icons/48.png",
@@ -49,6 +51,5 @@
     "16": "icons/16.png",
     "48": "icons/48.png",
     "128": "icons/128.png"
-  },
-  "homepage_url": "https://github.com/chenkaitech/DownloadLinkedIn"
+  }
 }

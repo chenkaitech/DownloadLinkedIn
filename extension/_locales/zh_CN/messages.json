@@ -1,0 +1,66 @@
+{
+  "extName": {
+    "message": "LinkedIn 视频下载器",
+    "description": "Extension name"
+  },
+  "extDescription": {
+    "message": "在 LinkedIn 帖子视频上添加下载按钮，一键保存 MP4。",
+    "description": "Extension description"
+  },
+  "btnDownload": {
+    "message": "⬇ 下载视频",
+    "description": "Download button label on videos"
+  },
+  "btnTitle": {
+    "message": "下载此视频",
+    "description": "Tooltip of the download button"
+  },
+  "btnResolving": {
+    "message": "⏳ 解析中",
+    "description": "Button state while finding the MP4 URL"
+  },
+  "btnStarted": {
+    "message": "✓ 已开始下载",
+    "description": "Button state after download starts"
+  },
+  "errNoMp4": {
+    "message": "未找到完整 MP4 地址",
+    "description": "Error when no progressive MP4 URL is found"
+  },
+  "errDownloadFailed": {
+    "message": "下载失败",
+    "description": "Generic download error"
+  },
+  "popupHeader": {
+    "message": "LinkedIn 视频下载",
+    "description": "Popup header"
+  },
+  "popupSection": {
+    "message": "页面中的视频",
+    "description": "Popup section title"
+  },
+  "popupDownload": {
+    "message": "下载",
+    "description": "Popup row button"
+  },
+  "popupFailed": {
+    "message": "失败",
+    "description": "Popup row button after failure"
+  },
+  "popupNotLinkedIn": {
+    "message": "请在 LinkedIn 页面中使用。",
+    "description": "Shown when active tab is not LinkedIn"
+  },
+  "popupResolving": {
+    "message": "解析中…",
+    "description": "Popup loading state"
+  },
+  "popupNoContentScript": {
+    "message": "内容脚本未加载，请刷新页面后重试。",
+    "description": "Content script missing"
+  },
+  "popupNoVideos": {
+    "message": "当前页面没有已加载的视频，请滚动到视频处。",
+    "description": "No videos"
+  }
+}

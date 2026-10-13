@@ -5,9 +5,9 @@
 一个轻量的 Chrome 扩展（Manifest V3），在 LinkedIn 帖子视频上添加「下载」按钮，一键保存完整的 MP4 文件。
 
 <p align="center">
-  <img src="docs/screenshots/button.png" alt="帖子视频上的下载按钮" width="520">
+  <img src="docs/screenshots/button-zh.png" alt="帖子视频上的下载按钮" width="520">
   &nbsp;
-  <img src="docs/screenshots/popup.png" alt="工具栏弹窗中的视频列表" width="300">
+  <img src="docs/screenshots/popup-zh.png" alt="工具栏弹窗中的视频列表" width="300">
 </p>
 
 <sub>截图使用模拟帖子，不含真实 LinkedIn 内容。</sub>
@@ -18,6 +18,7 @@
 - 🎯 按钮与视频一一对应，信息流中有多个视频也不会下错
 - 🎞 自动选择最高清晰度的完整 MP4（目前为 720p），带音频，不是 `.m4s` 分片
 - 📋 工具栏弹窗列出当前页面已加载的所有视频
+- 🌐 支持简体中文与英文界面，自动跟随浏览器语言
 - 🔒 最小权限：仅 `downloads` 与 `www.linkedin.com`，无统计、不连接任何第三方服务器
 
 ## 安装
@@ -38,6 +39,10 @@
 - **工具栏弹窗**：点击扩展图标，查看当前页面的所有视频并选择下载
 
 > 视频地址带签名，一段时间后会过期。页面打开很久后下载失败时，刷新页面重试即可。
+
+## 多语言
+
+界面语言跟随 Chrome 的语言设置（`chrome://settings/languages`）：`zh-CN` 显示简体中文，其他语言显示英文。文案位于 `extension/_locales/<语言>/messages.json`；如需新增语言，复制 `en/messages.json` 到新的语言目录并翻译其中的 `message` 字段即可。
 
 ## 原理
 
@@ -63,6 +68,7 @@ extension/
 ├── content.css     # 按钮样式
 ├── background.js   # chrome.downloads 下载
 ├── popup.html/js   # 工具栏弹窗
+├── _locales/       # 多语言文案（en、zh_CN）
 └── icons/
 docs/screenshots/   # README 截图
 ```

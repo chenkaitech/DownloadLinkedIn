@@ -5,9 +5,9 @@
 A lightweight Chrome extension (Manifest V3) that adds a **Download** button to videos in LinkedIn posts and saves them as full-length MP4 files with one click.
 
 <p align="center">
-  <img src="docs/screenshots/button.png" alt="Download button on a post video" width="520">
+  <img src="docs/screenshots/button-en.png" alt="Download button on a post video" width="520">
   &nbsp;
-  <img src="docs/screenshots/popup.png" alt="Toolbar popup listing videos on the page" width="300">
+  <img src="docs/screenshots/popup-en.png" alt="Toolbar popup listing videos on the page" width="300">
 </p>
 
 <sub>Screenshots use a mock post; no real LinkedIn content is shown.</sub>
@@ -18,6 +18,7 @@ A lightweight Chrome extension (Manifest V3) that adds a **Download** button to 
 - 🎯 Each button maps to its own video, so you never get the wrong one in a busy feed
 - 🎞 Picks the highest available progressive MP4 (currently 720p) — a complete file with audio, not `.m4s` fragments
 - 📋 Toolbar popup that lists all loaded videos on the current page
+- 🌐 English and Simplified Chinese UI, following your browser language
 - 🔒 Minimal permissions: only `downloads` and `www.linkedin.com`; no tracking, no external servers
 
 ## Installation
@@ -34,10 +35,14 @@ Works in Chrome 111+ and other Chromium browsers (Edge, Brave, Arc…).
 
 ## Usage
 
-- **On the page:** hover a video and click **⬇ 下载视频** (Download video). The file is saved to `Downloads/LinkedIn/linkedin_<assetId>_720p.mp4`.
+- **On the page:** hover a video and click **⬇ Download video**. The file is saved to `Downloads/LinkedIn/linkedin_<assetId>_720p.mp4`.
 - **From the toolbar:** click the extension icon to see every video on the current page and download any of them.
 
 > Video URLs are signed and expire after a while. If a download fails on a page that has been open for a long time, refresh the page and try again.
+
+## Localization
+
+The UI language follows Chrome's language setting (`chrome://settings/languages`): Simplified Chinese for `zh-CN`, English otherwise. Strings live in `extension/_locales/<locale>/messages.json`; to add a language, copy `en/messages.json` to a new locale folder and translate the `message` values.
 
 ## How it works
 
@@ -63,6 +68,7 @@ extension/
 ├── content.css     # Button styles
 ├── background.js   # chrome.downloads
 ├── popup.html/js   # Toolbar popup
+├── _locales/       # i18n strings (en, zh_CN)
 └── icons/
 docs/screenshots/   # README images
 ```
@@ -70,7 +76,7 @@ docs/screenshots/   # README images
 ## Limitations
 
 - Live streams and videos that only offer adaptive (HLS/DASH) streams aren't supported.
-- LinkedIn changes its front end often; if the button reports "未找到完整 MP4 地址" (no MP4 found), please [open an issue](https://github.com/chenkaitech/DownloadLinkedIn/issues).
+- LinkedIn changes its front end often; if the button reports "No MP4 found", please [open an issue](https://github.com/chenkaitech/DownloadLinkedIn/issues).
 
 ## Disclaimer
 

@@ -1,6 +1,7 @@
 (() => {
   const BTN_CLASS = 'lvd-download-btn';
   const MARK = 'lvdAttached';
+  const t = (key) => chrome.i18n.getMessage(key);
 
   function assetIdOf(url) {
     const m = url.match(/\/playlist\/vid\/(?:v\d+\/|dynamic\/)?([A-Za-z0-9_-]{10,})\//);
@@ -78,18 +79,18 @@
     e.preventDefault();
     e.stopPropagation();
     if (btn.classList.contains('lvd-busy')) return;
-    setState(btn, '⏳ 解析中', 'lvd-busy');
+    setState(btn, t('btnResolving'), 'lvd-busy');
     try {
       const url = await resolveUrl(video);
-      if (!url) throw new Error('未找到完整 MP4 地址');
+      if (!url) throw new Error(t('errNoMp4'));
       const res = await chrome.runtime.sendMessage({ type: 'download', url, filename: buildFilename(url) });
-      if (!res?.ok) throw new Error(res?.error || '下载失败');
-      setState(btn, '✓ 已开始下载', 'lvd-ok');
+      if (!res?.ok) throw new Error(res?.error || t('errDownloadFailed'));
+      setState(btn, t('btnStarted'), 'lvd-ok');
     } catch (err) {
       console.warn('[LinkedIn Video Downloader]', err);
-      setState(btn, '✗ ' + (err.message || '失败'), 'lvd-err');
+      setState(btn, '✗ ' + (err.message || t('errDownloadFailed')), 'lvd-err');
     }
-    setTimeout(() => setState(btn, '⬇ 下载视频'), 3000);
+    setTimeout(() => setState(btn, t('btnDownload')), 3000);
   }
 
   function attach(video) {
@@ -102,8 +103,8 @@
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = BTN_CLASS;
-    btn.textContent = '⬇ 下载视频';
-    btn.title = '下载此视频 (LinkedIn Video Downloader)';
+    btn.textContent = t('btnDownload');
+    btn.title = `${t('btnTitle')} (${t('extName')})`;
     // 阻止事件冒泡到播放器，避免点击按钮时触发暂停/播放
     for (const ev of ['mousedown', 'mouseup', 'pointerdown', 'pointerup', 'touchstart']) {
       btn.addEventListener(ev, (e) => e.stopPropagation());
