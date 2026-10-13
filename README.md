@@ -2,6 +2,10 @@
 
 **English** | [简体中文](README.zh-CN.md)
 
+<p align="center">
+  <img src="docs/demo-en.gif" alt="Demo: one-click download of a LinkedIn post video" width="640">
+</p>
+
 A lightweight Chrome extension (Manifest V3) that adds a **Download** button to videos in LinkedIn posts and saves them as full-length MP4 files with one click.
 
 <p align="center">
@@ -10,7 +14,7 @@ A lightweight Chrome extension (Manifest V3) that adds a **Download** button to 
   <img src="docs/screenshots/popup-en.png" alt="Toolbar popup listing videos on the page" width="300">
 </p>
 
-<sub>Screenshots use a mock post; no real LinkedIn content is shown.</sub>
+<sub>Demo and screenshots use a mock post; no real LinkedIn content is shown.</sub>
 
 ## Features
 

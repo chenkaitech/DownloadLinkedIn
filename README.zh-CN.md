@@ -2,6 +2,10 @@
 
 [English](README.md) | **简体中文**
 
+<p align="center">
+  <img src="docs/demo-en.gif" alt="演示：一键下载 LinkedIn 帖子视频" width="640">
+</p>
+
 一个轻量的 Chrome 扩展（Manifest V3），在 LinkedIn 帖子视频上添加「下载」按钮，一键保存完整的 MP4 文件。
 
 <p align="center">
@@ -10,7 +14,7 @@
   <img src="docs/screenshots/popup-zh.png" alt="工具栏弹窗中的视频列表" width="300">
 </p>
 
-<sub>截图使用模拟帖子，不含真实 LinkedIn 内容。</sub>
+<sub>演示动图与截图均使用模拟帖子，不含真实 LinkedIn 内容。</sub>
 
 ## 功能
 
